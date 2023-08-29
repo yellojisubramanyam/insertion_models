@@ -23,4 +23,12 @@ urlpatterns = [
     path('insert_topic/',insert_topic,name='insert_topic'),
     path('insert_webpage/',insert_webpage,name='insert_webpage'),
     path('insert_ac/',insert_ac,name='insert_ac'),
+  
+    path('display_topics/',display_topics,name='display_topics'),
+    path('display_webpage/',display_webpage,name='display_webpage'),
+    path('access_record1/',access_record1,name='access_record1'),
+
+    path('insert_topic/',insert_topic,name='insert_topic'),
+    path('insert_webpage/',insert_webpage,name='insert_webpage'),
+    path('insert_accessrecord/',insert_accessrecord,name='insert_accessrecord'),
 ]
