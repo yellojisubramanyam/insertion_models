@@ -4,6 +4,7 @@ from django.shortcuts import render
 from app.models import *
 from django.http import HttpResponse
 from django.db.models import Q
+from django.http import HttpResponse
 
 def insert_topic(request):
     tn=input('enter topicname: ')
@@ -69,7 +70,41 @@ def display_webpage(request):
      # using or----->(|) operator 
     QSWO=webpage.objects.all()
     QSWO=webpage.objects.filter(Q(name__startswith='r') | Q(url__endswith='in'))
+    QSWO = webpage.objects.all()
 
+
+    d={'QSWO':QSWO}
+    return render(request,'display_webpage.html',d)
+
+# UPdate method 
+
+def update_webpage(request):
+
+    #using update method
+   
+    #webpage.objects.filter(topic_name='football').update(name='ronaldo')
+
+    #webpage.objects.filter(name='yuvi').update(url='https://kohli.in')
+
+    #webpage.objects.filter(topic_name='hockey').update(name='ajith')
+
+    # update_or_create method
+
+    fto = topic.objects.get(topic_name = 'football')
+
+    webpage.objects.update_or_create(name = 'raventh',defaults={'topic_name':fto,'url':'http://raventh.in'})
+
+    QSWO=webpage.objects.all()
+
+    #delete method
+
+    # delete particular data
+
+    #webpage.objects.filter(name = 'kumar').delete()
+
+    # delete all data
+
+    #webpage.objects.all().delete()
 
 
 
@@ -123,7 +158,6 @@ def insert_accessrecord(request):
     qsao=access_record.objects.all()
     d={'qsao':qsao}
     return render(request,'access_record1.html',d)
-
 
 
 
